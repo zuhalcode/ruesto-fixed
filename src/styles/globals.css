@@ -1,27 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 6px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+::-webkit-scrollbar-track {
+  background-color: #f0f4f8;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+::-webkit-scrollbar-thumb {
+  background-color: #6a6a6a;
+  border-radius: 2px;
+}
+
+/* Hover styles */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #a0aec0;
+}
+
+.side-cart::-webkit-scrollbar {
+  width: 0;
+}
+
+.bg-home-rounded-first-section::before {
+  content: "";
+  @apply absolute -left-64 -top-[12rem] h-[1000px] w-[1000px] rounded-full bg-primary;
+}
+
+.navlink {
+  @apply relative font-semibold capitalize hover:cursor-pointer hover:text-secondary sm:hover:after:scale-x-100;
+}
+
+.navlink::after {
+  content: "";
+  @apply absolute -bottom-[1px] left-0 h-[1.5px] w-full origin-left scale-x-0 transform rounded-md bg-secondary transition duration-200;
+}
+
+.section-contact-us::after {
+  content: "";
+  @apply absolute top-0 h-full w-full bg-accent bg-opacity-70;
+}
+
+h1 {
+  @apply text-3xl font-bold capitalize text-accent;
+}
+
+h3 {
+  @apply text-center text-xl text-secondary sm:text-left;
+}
+
+.add-to-cart-btn::after {
+  content: "";
+  @apply absolute -left-[30px] -top-1 h-[1.5px] w-40 -rotate-[25deg] scale-x-0 bg-neutral duration-500;
+}
+
+.add-to-cart-btn::before {
+  content: "";
+  @apply absolute -right-[30px] -bottom-1 h-[1.5px] w-40 -rotate-[24deg] scale-x-0 bg-neutral duration-500;
 }
